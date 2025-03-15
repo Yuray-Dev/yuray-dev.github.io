@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        body {
+            background: #0a0a12;
+            color: #e5e5f0;
+            overflow-x: hidden;
+            overscroll-behavior: none;
+            cursor: none;
+            position: relative;
+        }
+
+        .background-layer {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, rgba(0, 230, 203, 0.115), rgba(10, 10, 18, 0));
+            animation: shiftGlow 20s ease infinite;
+            pointer-events: none;
+        }
+
+        .background-layer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.01) 1%, transparent 1%);
+            background-size: 4px 4px;
+            opacity: 0.8;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: #00e6cc;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: screen;
+            transition: transform 0.2s ease-out;
+        }
+
+        .container {
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 0 100px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 2rem 0;
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(40px);
+            border-bottom: 1px solid rgba(0, 230, 204, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #e5e5f0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00e6cc;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 230, 204, 0.05), rgba(10, 10, 18, 0));
+            filter: blur(100px);
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 9rem;
+            font-weight: 700;
+            color: #e5e5f0;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .hero h1 span {
+            color: #00e6cc;
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: #a0a0cc;
+            margin-top: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 200px 0;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #e5e5f0;
+            text-align: center;
+            margin-bottom: 6rem;
+            letter-spacing: -1px;
+        }
+
+        /* Projects */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 4rem;
+        }
+
+        .card {
+            background: rgba(15, 15, 25, 0.9);
+            padding: 3.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 230, 204, 0.15);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            cursor: pointer; /* Zeigt an, dass die Karte klickbar ist */
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 230, 204, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 230, 204, 0.1);
+        }
+
+        .card:active {
+            transform: translateY(-5px); /* Subtiler Effekt beim Klicken */
+        }
+
+        .card h3 {
+            color: #e5e5f0;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .card p {
+            color: #a0a0cc;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 5rem;
+            margin-top: 5rem;
+        }
+
+        .contact-item {
+            padding: 3.5rem;
+            background: rgba(15, 15, 25, 0.9);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 230, 204, 0.15);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 230, 204, 0.4);
+        }
+
+        .contact-item h3 {
+            color: #e5e5f0;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-item p {
+            color: #a0a0cc;
+            font-size: 1.4rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(to top, #0a0a12, transparent);
+        }
+
+        footer p {
+            color: #a0a0cc;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        @keyframes shiftGlow {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+            50% { transform: translate(50px, -50px) scale(1.1); opacity: 1; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+        }
