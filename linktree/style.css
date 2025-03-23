@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+body {
+    background: #0a0a12;
+    color: #e5e5f0;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    cursor: none;
+    position: relative;
+}
+
+.background-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(0, 230, 204, 0.03), rgba(10, 10, 18, 0));
+    animation: shiftGlow 20s ease infinite;
+    pointer-events: none;
+}
+
+.background-layer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.01) 1%, transparent 1%);
+    background-size: 4px 4px;
+    opacity: 0.8;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: #00e6cc;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transition: transform 0.2s ease-out;
+}
+
+.container {
+    max-width: 800px; /* Schmaler für Linktree-Stil */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero */
+.hero {
+    height: 60vh; /* Kürzer für Linktree */
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 230, 204, 0.05), rgba(10, 10, 18, 0));
+    filter: blur(100px);
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 6rem; /* Etwas kleiner */
+    font-weight: 700;
+    color: #e5e5f0;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.hero h1 span {
+    color: #00e6cc;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    color: #a0a0cc;
+    margin-top: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Links Section */
+#links {
+    padding: 50px 0;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.link-card {
+    background: rgba(15, 15, 25, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 230, 204, 0.15);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.link-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 230, 204, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 230, 204, 0.1);
+}
+
+.link-card:active {
+    transform: translateY(-5px);
+}
+
+.link-card h3 {
+    color: #e5e5f0;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.link-card p {
+    color: #a0a0cc;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(to top, #0a0a12, transparent);
+}
+
+footer p {
+    color: #a0a0cc;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #00e6cc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #e5e5f0;
+}
+
+@keyframes shiftGlow {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+    50% { transform: translate(50px, -50px) scale(1.1); opacity: 1; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+}
+
+.back-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    background: rgba(15, 15, 25, 0.9);
+    border: 1px solid rgba(0, 230, 204, 0.15);
+    border-radius: 10px;
+    color: #00e6cc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.4s ease;
+}
+
+.back-button:hover {
+    border-color: rgba(0, 230, 204, 0.4);
+    color: #e5e5f0;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 230, 204, 0.1);
+}
+
+.back-button:active {
+    transform: translateY(-2px);
+}
